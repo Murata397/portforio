@@ -1,0 +1,53 @@
+// グローバルナビ
+
+/*PC時の画面*/
+.gnav {
+  .gnav-list {
+    display: flex;
+    gap: 32px;
+  }
+
+  .gnav-link {
+    font-family: var(--font-en);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-main);
+    }
+  }
+
+  // 黄色いリンク（BLOG）
+  .gnav-link-accent {
+    color: var(--color-main);
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  // ヘッダーの下に全画面で開く
+  .gnav {
+    display: none;
+    padding: 40px 20px;
+    background-color: var(--color-bg);
+    position: fixed;
+    inset: var(--header-height) 0 0 0;
+
+    // gnavだけで使う状態は、モジュールの中に書く
+    &.is-open {
+      display: block;
+    }
+
+    .gnav-list {
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .gnav-link {
+      font-size: 22px;
+    }
+  }
+}

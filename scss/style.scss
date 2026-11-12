@@ -1,0 +1,19 @@
+// Base → Layout → Module → State の順に読み込む（後ろほど優先される）
+@use "base/destyle"; // リセットCSS（destyle.css v4.0.1）
+@use "base/base";
+
+@use "layout/l-container";
+@use "layout/l-header";
+@use "layout/l-section";
+
+@use "module/logo";
+@use "module/gnav";
+@use "module/menu-toggle";
+@use "module/hero";
+@use "module/section-title";
+@use "module/section-head";
+@use "module/mockup";
+@use "module/works";
+@use "module/about";
+
+@use "state/state";

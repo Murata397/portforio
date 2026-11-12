@@ -1,0 +1,16 @@
+// ヘッダー（上に固定）
+.l-header {
+  border-bottom: 1px solid var(--color-border);
+  background-color: rgba(15, 17, 21, 0.9);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .l-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+}

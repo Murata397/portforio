@@ -1,0 +1,18 @@
+// どのモジュールにも使える汎用の状態
+
+// メニューを開いている間、背景をスクロールさせない
+.is-scroll-locked {
+  overflow: hidden;
+}
+
+// PCだけで表示する（改行など）
+.is-pc-only {
+  display: inline;
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .is-pc-only {
+    display: none;
+  }
+}

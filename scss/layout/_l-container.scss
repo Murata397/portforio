@@ -1,0 +1,14 @@
+// 中身の幅をそろえる共通の枠
+.l-container {
+  width: 100%;
+  max-width: calc(var(--container) + 80px);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .l-container {
+    padding: 0 20px;
+  }
+}

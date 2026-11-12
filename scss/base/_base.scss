@@ -1,0 +1,44 @@
+// リセットは _destyle.scss に任せて、ここにはサイト独自の初期設定だけを書く
+
+// テーマカラー（CM_Logsと共通の黒と黄色）
+:root {
+  --color-bg: #0f1115;
+  --color-surface: #161920;
+  --color-surface-2: #1b1e25;
+  --color-border: #23262e;
+  --color-text: #ecedf0;
+  --color-sub: #b4b7bd;
+  --color-muted: #828486;
+  --color-main: #ffd23f;
+  --font-ja: "Noto Sans JP", sans-serif;
+  --font-en: "Archivo", "Noto Sans JP", sans-serif;
+  --container: 1120px;
+  --header-height: 67px;
+}
+
+html {
+  font-family: var(--font-ja);
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+}

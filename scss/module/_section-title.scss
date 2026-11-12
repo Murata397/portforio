@@ -1,0 +1,24 @@
+// セクションの見出し（WORKS / ABOUT / MESSAGE）
+
+/*PC時の画面*/
+.section-title {
+  font-family: var(--font-en);
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+}
+
+/*TB時の画面*/
+@media screen and (max-width: 1023px) {
+  .section-title {
+    font-size: 36px;
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .section-title {
+    font-size: 30px;
+  }
+}

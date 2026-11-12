@@ -1,0 +1,41 @@
+// トップページの一番上
+
+/*PC時の画面*/
+.hero {
+  padding: 160px 0 140px;
+
+  .hero-label {
+    color: var(--color-main);
+    font-family: var(--font-en);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-title {
+    margin-top: 28px;
+    // 画面幅に合わせて28px〜52pxで伸び縮みする
+    font-size: clamp(28px, 4.6vw, 52px);
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-title-accent {
+    color: var(--color-main);
+  }
+
+  .hero-lead {
+    max-width: 640px;
+    margin-top: 36px;
+    color: var(--color-sub);
+    line-height: 2.1;
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .hero {
+    padding: 88px 0 96px;
+  }
+}

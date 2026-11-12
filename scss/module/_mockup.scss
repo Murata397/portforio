@@ -1,0 +1,68 @@
+// PCとスマホのモックアップ（PCの右下にスマホを重ねる）
+.mockup {
+  padding-bottom: 40px;
+  position: relative;
+
+  // PC（ブラウザ風の枠）
+  .mockup-pc {
+    width: 92%;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background-color: var(--color-surface-2);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  // ブラウザの上のバー（丸3つ）
+  .mockup-pc-bar {
+    display: flex;
+    gap: 7px;
+    padding: 10px 12px;
+    background-color: var(--color-surface);
+
+    span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #4a4d55;
+    }
+  }
+
+  // スマホ（太めの枠）
+  .mockup-sp {
+    width: 20%;
+    border: 6px solid #2a2e37;
+    border-radius: 22px;
+    background-color: var(--color-surface-2);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    img {
+      width: 100%;
+      aspect-ratio: 9 / 19.5;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .mockup {
+    padding-bottom: 24px;
+
+    .mockup-sp {
+      border-width: 4px;
+      border-radius: 14px;
+    }
+  }
+}

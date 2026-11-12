@@ -1,0 +1,31 @@
+// 見出しと一言説明のセット（PCは左右、TB・SPは上下）
+
+/*PC時の画面*/
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 40px;
+  margin-bottom: 120px;
+
+  .section-head-note {
+    color: var(--color-muted);
+    font-size: 13px;
+  }
+}
+
+/*TB時の画面*/
+@media screen and (max-width: 1023px) {
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 96px;
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .section-head {
+    margin-bottom: 64px;
+  }
+}

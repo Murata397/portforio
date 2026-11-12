@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIKU MURATA | Web制作ポートフォリオ</title>
+    <meta name="description" content="自動車整備士・村田陸のWeb制作ポートフォリオ。デザイン・コーディング・WordPress構築。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header class="l-header" id="top">
+      <div class="l-header-inner l-container">
+        <a class="logo" href="#top">RIKU MURATA</a>
+
+        <!-- nav -->
+        <nav class="gnav" id="global-nav" aria-label="メインメニュー">
+          <ul class="gnav-list">
+            <li><a class="gnav-link" href="#works">WORKS</a></li>
+            <li><a class="gnav-link" href="#about">ABOUT</a></li>
+            <li><a class="gnav-link" href="#message">MESSAGE</a></li>
+            <li><a class="gnav-link gnav-link-accent" href="#blog">BLOG</a></li>
+          </ul>
+        </nav>
+
+        <!-- ハンバーガーメニュー（SP） -->
+        <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="global-nav">
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- main -->
+    <main>
+      <!-- hero -->
+      <section class="hero">
+        <div class="l-container">
+          <p class="hero-label">WEB DESIGN / CODING / WORDPRESS</p>
+          <h1 class="hero-title">
+            丁寧に、確実に。<br>
+            整備士の目線でつくる<span class="hero-title-accent">Webサイト。</span>
+          </h1>
+          <p class="hero-lead">自動車整備士として培った「点検・確認」の習慣を、Web制作にも。見た目だけでなく、更新しやすく壊れにくいサイトづくりを心がけています。</p>
+        </div>
+      </section>
+
+      <!-- works -->
+      <section class="l-section works" id="works">
+        <div class="l-container">
+          <div class="section-head">
+            <h2 class="section-title">WORKS</h2>
+            <p class="section-head-note">PC・スマホ両方の表示をひと目で確認できます</p>
+          </div>
+
+          <ul class="works-list">
+            <!-- NO.01 さわやか歯科クリニック -->
+            <li class="works-item">
+              <div class="works-visual">
+                <div class="mockup">
+                  <div class="mockup-pc">
+                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <img src="img/works/dental-pc.jpg" alt="さわやか歯科クリニックのPC表示" width="1440" height="810" loading="lazy">
+                  </div>
+                  <div class="mockup-sp">
+                    <img src="img/works/dental-sp.jpg" alt="さわやか歯科クリニックのスマホ表示" width="390" height="844" loading="lazy">
+                  </div>
+                </div>
+              </div>
+              <div class="works-body">
+                <p class="works-num">NO.01</p>
+                <p class="works-category">ケーススタディ<span>／</span>WordPressオリジナルテーマ</p>
+                <h3 class="works-title">さわやか歯科クリニック</h3>
+                <p class="works-text">青と白を基調にした歯科クリニックのサイト。要件をもとにオリジナルテーマで構築し、予約フォームやスマホ表示にも対応。[工夫した点]</p>
+                <p class="works-meta">担当：デザイン・コーディング・WordPress構築<span>／</span>制作期間：約1ヶ月</p>
+                <div class="works-links">
+                  <a class="works-btn" href="https://atptdtmj0902.xsrv.jp/sawayakadentalclinic/" target="_blank" rel="noopener">サイトを見る</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- NO.02 CM_Logs -->
+            <li class="works-item">
+              <div class="works-visual">
+                <div class="mockup">
+                  <div class="mockup-pc">
+                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <img src="img/works/cmlogs-pc.jpg" alt="CM_LogsのPC表示" width="1440" height="810" loading="lazy">
+                  </div>
+                  <div class="mockup-sp">
+                    <img src="img/works/cmlogs-sp.jpg" alt="CM_Logsのスマホ表示" width="390" height="844" loading="lazy">
+                  </div>
+                </div>
+              </div>
+              <div class="works-body">
+                <p class="works-num">NO.02</p>
+                <p class="works-category">スクール制作<span>／</span>Ruby on Rails・AWS</p>
+                <h3 class="works-title">CM_Logs</h3>
+                <p class="works-text">車のメンテナンス手順を投稿・共有できるコミュニティサイト。ER図・画面設計から作り、AWSで公開まで経験（現在は公開終了）。その後、Rails 8.1で一から作り直しました。</p>
+                <p class="works-meta">担当：設計・開発<span>／</span>制作期間：Ver.1 約1ヶ月半・Ver.2 3日（AIを活用）</p>
+                <div class="works-links">
+                  <a class="works-btn" href="https://github.com/Murata397/cm_logs_v2" target="_blank" rel="noopener">GitHubを見る</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- NO.03 Cafe Harmonie -->
+            <li class="works-item">
+              <div class="works-visual">
+                <div class="mockup">
+                  <div class="mockup-pc">
+                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <img src="img/works/cafe-pc.jpg" alt="Cafe HarmonieのPC表示" width="1440" height="810" loading="lazy">
+                  </div>
+                  <div class="mockup-sp">
+                    <img src="img/works/cafe-sp.jpg" alt="Cafe Harmonieのスマホ表示" width="390" height="844" loading="lazy">
+                  </div>
+                </div>
+              </div>
+              <div class="works-body">
+                <p class="works-num">NO.03</p>
+                <p class="works-category">ケーススタディ<span>／</span>WordPress</p>
+                <h3 class="works-title">Cafe Harmonie</h3>
+                <p class="works-text">架空のカフェを想定したWordPressサイト。既存テーマを使用して構築しました。[制作のポイントを1〜2行で]</p>
+                <p class="works-meta">担当：WordPress構築（既存テーマ使用）<span>／</span>制作期間：2週間</p>
+                <div class="works-links">
+                  <a class="works-btn" href="https://atptdtmj0902.xsrv.jp/CafeHarmonie/" target="_blank" rel="noopener">サイトを見る</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- NO.04 Hair Tech -->
+            <li class="works-item">
+              <div class="works-visual">
+                <div class="mockup">
+                  <div class="mockup-pc">
+                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <img src="img/works/hairtech-pc.jpg" alt="Hair TechのPC表示" width="1200" height="1172" loading="lazy">
+                  </div>
+                  <div class="mockup-sp">
+                    <img src="img/works/hairtech-sp.jpg" alt="Hair Techのスマホ表示" width="600" height="1298" loading="lazy">
+                  </div>
+                </div>
+              </div>
+              <div class="works-body">
+                <p class="works-num">NO.04</p>
+                <p class="works-category">スクール課題<span>／</span>WordPress・Lightning</p>
+                <h3 class="works-title">Hair Tech</h3>
+                <p class="works-text">美容室を想定したWordPressサイト。既存テーマ「Lightning」を使用し、おすすめコース・お客様の声・スタッフブログ・お問い合わせフォームを構築しました。</p>
+                <p class="works-meta">担当：WordPress構築（既存テーマ使用）<span>／</span>制作期間：2週間</p>
+                <div class="works-links">
+                  <a class="works-btn" href="http://atptdtmj0902.xsrv.jp/" target="_blank" rel="noopener">サイトを見る</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- NO.05 STUDIOケーススタディ -->
+            <li class="works-item">
+              <div class="works-visual">
+                <div class="mockup">
+                  <div class="mockup-pc">
+                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <img src="img/works/studio-pc.jpg" alt="AI業務効率化セミナーLPのPC表示" width="1200" height="1172" loading="lazy">
+                  </div>
+                  <div class="mockup-sp">
+                    <img src="img/works/studio-sp.jpg" alt="AI業務効率化セミナーLPのスマホ表示" width="600" height="1298" loading="lazy">
+                  </div>
+                </div>
+              </div>
+              <div class="works-body">
+                <p class="works-num">NO.05</p>
+                <p class="works-category">ケーススタディ<span>／</span>STUDIO</p>
+                <h3 class="works-title">AI業務効率化セミナー LP</h3>
+                <p class="works-text">「株式会社AIビジネスラボ」のセミナー告知LPを想定したケーススタディ。ノーコードツール「STUDIO」で、開催概要・セミナーのポイント・講師紹介・よくある質問・受講生の声を1ページにまとめました。</p>
+                <p class="works-meta">担当：[担当]<span>／</span>制作期間：5日</p>
+                <div class="works-links">
+                  <a class="works-btn" href="https://preview.studio.site/live/d7Wl1mMKOV" target="_blank" rel="noopener">サイトを見る</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- NO.06 OUTDOOR FESTIVAL バナー -->
+            <li class="works-item">
+              <div class="works-visual">
+                <div class="works-image">
+                  <img src="img/works/banner.jpg" alt="OUTDOOR FESTIVAL 2024 告知バナー" width="1200" height="628" loading="lazy">
+                </div>
+              </div>
+              <div class="works-body">
+                <p class="works-num">NO.06</p>
+                <p class="works-category">スクール課題<span>／</span>Figma・ロゴ制作</p>
+                <h3 class="works-title">OUTDOOR FESTIVAL バナー</h3>
+                <p class="works-text">アウトドアイベントの告知バナー。手書き風のロゴも制作。[工夫した点]</p>
+                <p class="works-meta">担当：デザイン・ロゴ制作<span>／</span>制作期間：2日</p>
+                <div class="works-links">
+                  <a class="works-btn" href="https://www.figma.com/design/22U302Q8gfZxdEZKX73R5v" target="_blank" rel="noopener">作品を見る</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- NO.07 コーディング練習 -->
+            <li class="works-item">
+              <div class="works-visual">
+                <div class="mockup">
+                  <div class="mockup-pc">
+                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <img src="img/works/store-pc.jpg" alt="コーディング練習（store）のPC表示" width="1440" height="810" loading="lazy">
+                  </div>
+                  <div class="mockup-sp">
+                    <img src="img/works/store-sp.jpg" alt="コーディング練習（store）のスマホ表示" width="390" height="844" loading="lazy">
+                  </div>
+                </div>
+              </div>
+              <div class="works-body">
+                <p class="works-num">NO.07</p>
+                <p class="works-category">模写<span>／</span>HTML・SCSS・JavaScript</p>
+                <h3 class="works-title">コーディング練習（store / SOUSAKU / MyWork）</h3>
+                <p class="works-text">既存サイトの模写コーディング3点。SCSSでの構造化やJavaScriptの動きを実装。</p>
+                <p class="works-meta">担当：コーディング<span>／</span>制作期間：各3週間</p>
+                <div class="works-links">
+                  <a class="works-btn" href="https://murata397.github.io/Codejump/store/" target="_blank" rel="noopener">store</a>
+                  <a class="works-btn" href="https://murata397.github.io/Codejump/Creation/" target="_blank" rel="noopener">SOUSAKU</a>
+                  <a class="works-btn" href="https://murata397.github.io/Codejump/MyWork/" target="_blank" rel="noopener">MyWork</a>
+                </div>
+              </div>
+            </li>
+
+            <!-- NO.08 YouTubeサムネイル -->
+            <li class="works-item">
+              <div class="works-visual">
+                <div class="works-image">
+                  <img src="img/works/thumbnail.jpg" alt="YouTubeサムネイル「日本の神絶景 厳選10選」" width="1280" height="720" loading="lazy">
+                </div>
+              </div>
+              <div class="works-body">
+                <p class="works-num">NO.08</p>
+                <p class="works-category">ケーススタディ<span>／</span>Canva</p>
+                <h3 class="works-title">YouTubeサムネイル</h3>
+                <p class="works-text">Canvaで制作したサムネイル。[狙い・工夫した点]</p>
+                <p class="works-meta">担当：デザイン<span>／</span>制作期間：2日</p>
+                <div class="works-links">
+                  <a class="works-btn" href="https://canva.link/wtd3slhlqmqkh0d" target="_blank" rel="noopener">作品を見る</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- about -->
+      <section class="l-section about" id="about">
+        <div class="l-container about-inner">
+          <!-- 写真ができたら span を <img src="img/profile.jpg" alt="村田 陸"> に差し替える -->
+          <div class="about-photo">
+            <span>プロフィール写真</span>
+          </div>
+
+          <div class="about-body">
+            <h2 class="section-title">ABOUT</h2>
+            <p class="about-name">村田 陸<span>Riku Murata</span></p>
+            <p class="about-text">本業は自動車整備士。2025年6月からWeb制作を学び始め、現在はWordPressのオリジナルテーマ制作に取り組んでいます。整備の仕事で身についた「丁寧な確認」と「期限を守る段取り」を、Web制作でも大切にしています。</p>
+            <ul class="about-skills">
+              <li>HTML / CSS</li>
+              <li>SCSS</li>
+              <li>JavaScript</li>
+              <li>WordPress</li>
+              <li>Figma</li>
+              <li>Canva</li>
+            </ul>
+            <p class="about-note">対応時間：平日夜間・休日中心（ご連絡には日中も気づき次第お返事します）</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+
+</html>

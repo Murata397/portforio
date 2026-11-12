@@ -1,0 +1,164 @@
+// 制作実績
+
+/*PC時の画面*/
+.works {
+  // 画像と文章を横並び
+  .works-item {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+
+    & + .works-item {
+      margin-top: 140px;
+    }
+
+    // 2つ目ごとに画像を右へ
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .works-visual {
+    flex-shrink: 0;
+    width: 54%;
+  }
+
+  .works-body {
+    flex: 1;
+  }
+
+  // バナー・サムネイルなどの作品画像
+  .works-image {
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background-color: var(--color-surface-2);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      // 作品なので切り取らずに全体を見せる
+      object-fit: contain;
+    }
+  }
+
+  .works-num {
+    color: var(--color-muted);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  // 区分（黄色）
+  .works-category {
+    margin-top: 10px;
+    color: var(--color-main);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+
+    span {
+      margin: 0 8px;
+      color: var(--color-muted);
+    }
+  }
+
+  .works-title {
+    margin-top: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .works-text {
+    margin-top: 20px;
+    color: var(--color-sub);
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  // 担当・制作期間
+  .works-meta {
+    margin-top: 16px;
+    color: var(--color-muted);
+    font-size: 13px;
+
+    span {
+      margin: 0 6px;
+    }
+  }
+
+  .works-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  // 枠線つきのボタン
+  .works-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    border: 1px solid var(--color-main);
+    border-radius: 999px;
+    color: var(--color-main);
+    font-size: 14px;
+    line-height: 1.4;
+    transition: color 0.2s, background-color 0.2s;
+
+    &::after {
+      content: "→";
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-bg);
+      background-color: var(--color-main);
+    }
+  }
+}
+
+/*TB時の画面*/
+@media screen and (max-width: 1023px) {
+  .works {
+    // 画像の下に文章を積む
+    .works-item {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 40px;
+
+      & + .works-item {
+        margin-top: 120px;
+      }
+
+      &:nth-child(even) {
+        flex-direction: column;
+      }
+    }
+
+    .works-visual {
+      width: 100%;
+    }
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .works {
+    .works-item {
+      gap: 28px;
+
+      & + .works-item {
+        margin-top: 80px;
+      }
+    }
+
+    .works-category {
+      font-size: 13px;
+    }
+
+    .works-title {
+      font-size: 22px;
+    }
+  }
+}

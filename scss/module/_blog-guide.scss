@@ -1,0 +1,53 @@
+// ブログへの案内（フッターの上の帯）
+
+/*PC時の画面*/
+.blog-guide {
+  padding: 60px 0;
+  border-top: 1px solid var(--color-border);
+
+  .blog-guide-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px 40px;
+  }
+
+  .blog-guide-text {
+    color: var(--color-sub);
+    font-size: 15px;
+  }
+
+  .blog-guide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-main);
+    font-family: var(--font-en);
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    transition: opacity 0.2s;
+
+    &::after {
+      content: "→";
+    }
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.7;
+    }
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .blog-guide {
+    padding: 48px 0;
+
+    // 文章の下にリンク
+    .blog-guide-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

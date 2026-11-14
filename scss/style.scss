@@ -5,6 +5,7 @@
 @use "layout/l-container";
 @use "layout/l-header";
 @use "layout/l-section";
+@use "layout/l-footer";
 
 @use "module/logo";
 @use "module/gnav";
@@ -15,5 +16,7 @@
 @use "module/mockup";
 @use "module/works";
 @use "module/about";
+@use "module/message";
+@use "module/blog-guide";
 
 @use "state/state";

@@ -278,7 +278,48 @@
           </div>
         </div>
       </section>
+
+      <!-- message -->
+      <section class="l-section message" id="message">
+        <div class="l-container">
+          <div class="message-inner">
+            <h2 class="section-title">MESSAGE</h2>
+            <p class="message-lead">お仕事のご依頼・ご相談はこちらからお気軽にどうぞ。</p>
+
+            <!-- 送信の仕組みはWordPress化のときに Contact Form 7 で作る -->
+            <form class="message-form" action="#" method="post">
+              <div class="message-field">
+                <label class="message-label" for="message-name">お名前<span aria-hidden="true">*</span></label>
+                <input class="message-input" type="text" id="message-name" name="name" autocomplete="name" required>
+              </div>
+              <div class="message-field">
+                <label class="message-label" for="message-email">メールアドレス<span aria-hidden="true">*</span></label>
+                <input class="message-input" type="email" id="message-email" name="email" autocomplete="email" required>
+              </div>
+              <div class="message-field">
+                <label class="message-label" for="message-body">ご相談内容<span aria-hidden="true">*</span></label>
+                <textarea class="message-input message-textarea" id="message-body" name="message" required></textarea>
+              </div>
+              <button class="message-submit" type="submit">送信する</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- blog -->
+      <section class="blog-guide" id="blog">
+        <div class="l-container blog-guide-inner">
+          <p class="blog-guide-text">学習記録や制作の裏側をブログで発信しています。</p>
+          <!-- ブログのURLが決まったら href を差し替える -->
+          <a class="blog-guide-link" href="#">BLOG</a>
+        </div>
+      </section>
     </main>
+
+    <!-- footer -->
+    <footer class="l-footer">
+      <p class="l-footer-copy"><small>&copy; 2026 RIKU MURATA</small></p>
+    </footer>
   </body>
 
 </html>

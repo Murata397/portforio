@@ -93,28 +93,9 @@
     margin-top: 24px;
   }
 
-  // 枠線つきのボタン
-  .works-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 24px;
-    border: 1px solid var(--color-main);
-    border-radius: 999px;
-    color: var(--color-main);
-    font-size: 14px;
-    line-height: 1.4;
-    transition: color 0.2s, background-color 0.2s;
-
-    &::after {
-      content: "→";
-    }
-
-    &:hover,
-    &:focus-visible {
-      color: var(--color-bg);
-      background-color: var(--color-main);
-    }
+  // 2段目のボタン（1段目との間をつめる）
+  .works-links-sub {
+    margin-top: 12px;
   }
 }
 

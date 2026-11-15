@@ -30,6 +30,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+// 見出しだけ、日本語を文節で改行して行の長さをそろえる
+// （文章に使うと右端がガタガタになるので、文章は普通の改行のまま）
+h1, h2, h3, h4 {
+  word-break: auto-phrase;
+  text-wrap: balance;
+}
+
+// 文章は最後の行に1文字だけ残らないようにする
+p, dd, li {
+  text-wrap: pretty;
+}
+
 img {
   display: block;
   max-width: 100%;

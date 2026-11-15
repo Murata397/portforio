@@ -1,0 +1,458 @@
+// 作品の詳細ページ
+
+/*PC時の画面*/
+.work-detail {
+  padding: 56px 0 120px;
+
+  // パンくずリスト
+  .work-detail-crumb {
+    color: var(--color-muted);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+
+    ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    li + li::before {
+      content: "/";
+      margin-right: 8px;
+    }
+
+    a {
+      transition: color 0.2s;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--color-main);
+      }
+    }
+  }
+
+  // タイトルまわり
+  .work-detail-head {
+    margin-top: 64px;
+  }
+
+  .work-detail-num {
+    color: var(--color-muted);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .work-detail-category {
+    margin-top: 10px;
+    color: var(--color-main);
+    font-size: 14px;
+    letter-spacing: 0.06em;
+
+    span {
+      margin: 0 8px;
+      color: var(--color-muted);
+    }
+  }
+
+  .work-detail-title {
+    margin-top: 12px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+  }
+
+  .work-detail-lead {
+    max-width: 720px;
+    margin-top: 24px;
+    color: var(--color-sub);
+    line-height: 2;
+  }
+
+  .work-detail-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  // メインの画像
+  .work-detail-visual {
+    max-width: 880px;
+    margin: 80px auto 0;
+  }
+
+  // バナー・サムネイルなどの作品画像（モックアップのかわり）
+  .work-detail-image {
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  // 作品情報の表
+  .work-detail-meta {
+    margin-top: 96px;
+    border-top: 1px solid var(--color-border);
+
+    div {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 8px 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    dt {
+      color: var(--color-muted);
+      font-size: 14px;
+    }
+
+    dd {
+      font-size: 15px;
+    }
+  }
+
+  .work-detail-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    li {
+      padding: 2px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: 999px;
+      font-size: 13px;
+    }
+  }
+
+  // 01 / 02 / 03 の各ブロック
+  .work-detail-section {
+    margin-top: 120px;
+  }
+
+  .work-detail-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 26px;
+    font-weight: 700;
+
+    span {
+      color: var(--color-main);
+      font-family: var(--font-en);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+  }
+
+  .work-detail-text {
+    max-width: 800px;
+    color: var(--color-sub);
+    line-height: 2;
+
+    p + p {
+      margin-top: 1em;
+    }
+  }
+
+  // 提案内容のカード（2列）
+  .work-detail-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+
+    & + .work-detail-links {
+      margin-top: 32px;
+    }
+  }
+
+  .work-detail-card {
+    padding: 32px 28px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background-color: var(--color-surface);
+  }
+
+  .work-detail-card-title {
+    padding-left: 12px;
+    border-left: 3px solid var(--color-main);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .work-detail-card-text {
+    margin-top: 16px;
+    color: var(--color-sub);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  // 黄色い点の箇条書き
+  .work-detail-card-list {
+    margin-top: 16px;
+    color: var(--color-sub);
+    font-size: 14px;
+
+    li {
+      padding-left: 16px;
+      position: relative;
+
+      & + li {
+        margin-top: 8px;
+      }
+
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--color-main);
+        position: absolute;
+        top: 0.75em;
+        left: 0;
+      }
+    }
+  }
+
+  .work-detail-card-price {
+    margin-top: 16px;
+    color: var(--color-main);
+    font-size: 24px;
+    font-weight: 700;
+
+    span {
+      display: block;
+      color: var(--color-muted);
+      font-size: 13px;
+      font-weight: 400;
+    }
+  }
+
+  // 左に見出し、右に中身（スケジュール・Ver.1／Ver.2の比較）
+  .work-detail-card-steps {
+    margin-top: 16px;
+    font-size: 14px;
+
+    > li,
+    > div {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+      padding: 10px 0;
+      color: var(--color-sub);
+
+      & + li,
+      & + div {
+        border-top: 1px solid var(--color-border);
+      }
+    }
+
+    span,
+    dt {
+      color: var(--color-main);
+      font-weight: 700;
+    }
+  }
+
+  // ボタンの下の注意書き
+  .work-detail-note {
+    margin-top: 16px;
+    color: var(--color-muted);
+    font-size: 13px;
+  }
+
+  // 画面の画像（2列）
+  .work-detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 32px;
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    p {
+      margin-top: 12px;
+      color: var(--color-muted);
+      font-size: 13px;
+    }
+  }
+
+  // サイト構成（ページの一覧）
+  .work-detail-pages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    li {
+      padding: 20px 24px;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      background-color: var(--color-surface);
+    }
+
+    strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    // 「追加提案」の小さなラベル
+    em {
+      margin-left: 8px;
+      padding: 1px 8px;
+      border: 1px solid var(--color-main);
+      border-radius: 999px;
+      color: var(--color-main);
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 500;
+      vertical-align: 2px;
+    }
+
+    span {
+      display: block;
+      margin-top: 6px;
+      color: var(--color-muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+  }
+
+  // 工夫した点のカード
+  .work-detail-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .work-detail-point {
+    padding: 32px 28px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background-color: var(--color-surface);
+  }
+
+  .work-detail-point-num {
+    color: var(--color-main);
+    font-family: var(--font-en);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .work-detail-point-title {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  .work-detail-point-text {
+    margin-top: 12px;
+    color: var(--color-sub);
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  // 一覧へ戻る
+  .work-detail-back {
+    margin-top: 120px;
+    text-align: center;
+  }
+
+  // 作品一覧のレイアウトを使い回すとき（コーディング練習の3サイト）
+  .works {
+    .work-detail-skills {
+      margin-top: 20px;
+    }
+  }
+}
+
+/*TB時の画面*/
+@media screen and (max-width: 1023px) {
+  .work-detail {
+    .work-detail-title {
+      font-size: 34px;
+    }
+
+    .work-detail-pages {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    // カードを縦に積む
+    .work-detail-cards,
+    .work-detail-points {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .work-detail {
+    padding: 40px 0 80px;
+
+    .work-detail-head {
+      margin-top: 40px;
+    }
+
+    .work-detail-category {
+      font-size: 13px;
+    }
+
+    .work-detail-title {
+      font-size: 28px;
+    }
+
+    .work-detail-visual {
+      margin-top: 56px;
+    }
+
+    .work-detail-meta {
+      margin-top: 64px;
+
+      // 項目名の下に中身
+      div {
+        grid-template-columns: 1fr;
+        padding: 16px 0;
+      }
+    }
+
+    .work-detail-section {
+      margin-top: 80px;
+    }
+
+    .work-detail-heading {
+      font-size: 22px;
+    }
+
+    .work-detail-pages,
+    .work-detail-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .work-detail-card,
+    .work-detail-point {
+      padding: 24px 20px;
+    }
+
+    .work-detail-back {
+      margin-top: 80px;
+    }
+  }
+}

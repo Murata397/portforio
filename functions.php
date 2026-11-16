@@ -45,6 +45,12 @@ function riku_resource_hints($urls, $relation_type) {
 }
 add_filter('wp_resource_hints', 'riku_resource_hints', 10, 2);
 
+// <title>の区切りを「–」から「|」にする（例：CM_Logs | RIKU MURATA）
+function riku_title_separator() {
+  return '|';
+}
+add_filter('document_title_separator', 'riku_title_separator');
+
 // サイトアイコン（管理画面で設定していないときだけ、テーマのアイコンを出す）
 function riku_fallback_icon() {
   if (has_site_icon()) {

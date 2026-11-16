@@ -22,182 +22,53 @@ get_header();
             <p class="section-head-note">PC・スマホ両方の表示をひと目で確認できます</p>
           </div>
 
+          <?php
+          // 制作実績を「順序」の小さい順に全部取り出す
+          $works = new WP_Query(array(
+            'post_type'      => 'works',
+            'posts_per_page' => -1,
+            'orderby'        => array('menu_order' => 'ASC', 'date' => 'ASC'),
+          ));
+          ?>
+          <?php if ($works->have_posts()) : ?>
           <ul class="works-list">
-            <!-- NO.01 さわやか歯科クリニック -->
+            <?php while ($works->have_posts()) : $works->the_post(); ?>
             <li class="works-item">
               <div class="works-visual">
-                <div class="mockup">
-                  <div class="mockup-pc">
-                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/dental-pc.jpg')); ?>" alt="さわやか歯科クリニックのPC表示" width="1440" height="810" loading="lazy">
-                  </div>
-                  <div class="mockup-sp">
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/dental-sp.jpg')); ?>" alt="さわやか歯科クリニックのスマホ表示" width="390" height="844" loading="lazy">
-                  </div>
-                </div>
+                <?php get_template_part('template-parts/works-visual', null, array('lazy' => true)); ?>
               </div>
               <div class="works-body">
-                <p class="works-num">NO.01</p>
-                <p class="works-category">ケーススタディ<span>／</span>WordPressオリジナルテーマ</p>
-                <h3 class="works-title">さわやか歯科クリニック</h3>
-                <p class="works-text">青と白を基調にした歯科医院のサイト。提案からオリジナルテーマで構築し、オンライン予約は診療時間外を選べないようにしました。</p>
-                <p class="works-meta">担当：デザイン・コーディング・WordPress構築<span>／</span>制作期間：約1ヶ月</p>
+                <p class="works-num"><?php echo esc_html(riku_field('num')); ?></p>
+                <p class="works-category"><?php riku_category(); ?></p>
+                <h3 class="works-title"><?php echo esc_html(riku_field('short_title') ?: get_the_title()); ?></h3>
+                <p class="works-text"><?php echo esc_html(riku_field('summary')); ?></p>
+                <p class="works-meta">担当：<?php echo esc_html(riku_field('role')); ?><span>／</span>制作期間：<?php echo esc_html(riku_field('period')); ?></p>
                 <div class="works-links">
-                  <a class="btn btn-fill" href="<?php echo esc_url(home_url('/works/dental/')); ?>">詳しく見る</a>
-                  <a class="btn" href="https://atptdtmj0902.xsrv.jp/sawayakadentalclinic/" target="_blank" rel="noopener">サイトを見る</a>
+                  <a class="btn btn-fill" href="<?php the_permalink(); ?>">詳しく見る</a>
+                  <?php
+                  // メインのリンク、なければGitHub
+                  if (riku_field('link_url')) {
+                    riku_external_btn(riku_field('link_label') ?: 'サイトを見る', riku_field('link_url'));
+                  } elseif (riku_field('github_url')) {
+                    riku_external_btn('GitHubを見る', riku_field('github_url'));
+                  }
+                  ?>
                 </div>
+                <?php $sub_links = riku_sub_links(); ?>
+                <?php if ($sub_links) : ?>
+                  <!-- 2段目のリンク（コーディング練習の3サイトなど） -->
+                  <div class="works-links works-links-sub">
+                    <?php foreach ($sub_links as $sub) : ?>
+                      <?php riku_external_btn($sub['label'], $sub['url']); ?>
+                    <?php endforeach; ?>
+                  </div>
+                <?php endif; ?>
               </div>
             </li>
-
-            <!-- NO.02 CM_Logs -->
-            <li class="works-item">
-              <div class="works-visual">
-                <div class="mockup">
-                  <div class="mockup-pc">
-                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/cmlogs-pc.jpg')); ?>" alt="CM_LogsのPC表示" width="1440" height="810" loading="lazy">
-                  </div>
-                  <div class="mockup-sp">
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/cmlogs-sp.jpg')); ?>" alt="CM_Logsのスマホ表示" width="390" height="844" loading="lazy">
-                  </div>
-                </div>
-              </div>
-              <div class="works-body">
-                <p class="works-num">NO.02</p>
-                <p class="works-category">スクール制作<span>／</span>Ruby on Rails・AWS</p>
-                <h3 class="works-title">CM_Logs</h3>
-                <p class="works-text">車の整備手順を投稿・共有できるコミュニティサイト。スクールで作りAWSで公開したものを、Rails 8.1で一から作り直しました。</p>
-                <p class="works-meta">担当：設計・開発<span>／</span>制作期間：Ver.1 約1ヶ月半・Ver.2 3日（AIを活用）</p>
-                <div class="works-links">
-                  <a class="btn btn-fill" href="<?php echo esc_url(home_url('/works/cmlogs/')); ?>">詳しく見る</a>
-                  <a class="btn" href="https://github.com/Murata397/cm_logs_v2" target="_blank" rel="noopener">GitHubを見る</a>
-                </div>
-              </div>
-            </li>
-
-            <!-- NO.03 Cafe Harmonie -->
-            <li class="works-item">
-              <div class="works-visual">
-                <div class="mockup">
-                  <div class="mockup-pc">
-                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/cafe-pc.jpg')); ?>" alt="Cafe HarmonieのPC表示" width="1440" height="810" loading="lazy">
-                  </div>
-                  <div class="mockup-sp">
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/cafe-sp.jpg')); ?>" alt="Cafe Harmonieのスマホ表示" width="390" height="844" loading="lazy">
-                  </div>
-                </div>
-              </div>
-              <div class="works-body">
-                <p class="works-num">NO.03</p>
-                <p class="works-category">ケーススタディ<span>／</span>WordPress</p>
-                <h3 class="works-title">Cafe Harmonie</h3>
-                <p class="works-text">個人経営のカフェを想定したWordPressサイト。既存テーマ「Bayside Cafe」を使い、提案からフォーム・地図の設置まで行いました。</p>
-                <p class="works-meta">担当：提案・テーマ選定・WordPress構築<span>／</span>制作期間：2週間</p>
-                <div class="works-links">
-                  <a class="btn btn-fill" href="<?php echo esc_url(home_url('/works/cafe/')); ?>">詳しく見る</a>
-                  <a class="btn" href="https://atptdtmj0902.xsrv.jp/CafeHarmonie/" target="_blank" rel="noopener">サイトを見る</a>
-                </div>
-              </div>
-            </li>
-
-            <!-- NO.04 STUDIOケーススタディ -->
-            <li class="works-item">
-              <div class="works-visual">
-                <div class="mockup">
-                  <div class="mockup-pc">
-                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/studio-pc.jpg')); ?>" alt="AI業務効率化セミナーLPのPC表示" width="1200" height="1172" loading="lazy">
-                  </div>
-                  <div class="mockup-sp">
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/studio-sp.jpg')); ?>" alt="AI業務効率化セミナーLPのスマホ表示" width="600" height="1298" loading="lazy">
-                  </div>
-                </div>
-              </div>
-              <div class="works-body">
-                <p class="works-num">NO.04</p>
-                <p class="works-category">ケーススタディ<span>／</span>STUDIO</p>
-                <h3 class="works-title">AI業務効率化セミナー LP</h3>
-                <p class="works-text">セミナー告知LPを想定したケーススタディ。STUDIOで、開催日時がすぐ分かり、迷わず申し込める1ページにまとめました。</p>
-                <p class="works-meta">担当：提案・デザイン・STUDIO実装<span>／</span>制作期間：5日</p>
-                <div class="works-links">
-                  <a class="btn btn-fill" href="<?php echo esc_url(home_url('/works/studio/')); ?>">詳しく見る</a>
-                  <a class="btn" href="https://blue511433.studio.site/" target="_blank" rel="noopener">サイトを見る</a>
-                </div>
-              </div>
-            </li>
-
-            <!-- NO.05 コーディング練習 -->
-            <li class="works-item">
-              <div class="works-visual">
-                <div class="mockup">
-                  <div class="mockup-pc">
-                    <div class="mockup-pc-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/store-pc.jpg')); ?>" alt="コーディング練習（store）のPC表示" width="1440" height="810" loading="lazy">
-                  </div>
-                  <div class="mockup-sp">
-                    <img src="<?php echo esc_url(get_theme_file_uri('img/works/store-sp.jpg')); ?>" alt="コーディング練習（store）のスマホ表示" width="390" height="844" loading="lazy">
-                  </div>
-                </div>
-              </div>
-              <div class="works-body">
-                <p class="works-num">NO.05</p>
-                <p class="works-category">模写<span>／</span>HTML・SCSS・JavaScript</p>
-                <h3 class="works-title">コーディング練習</h3>
-                <p class="works-text">既存サイトの模写3点。SCSS・Grid・縦書き・JavaScriptなど、カリキュラムで触れていないことに挑戦しました。</p>
-                <p class="works-meta">担当：コーディング<span>／</span>制作期間：各3週間</p>
-                <div class="works-links">
-                  <a class="btn btn-fill" href="<?php echo esc_url(home_url('/works/coding/')); ?>">詳しく見る</a>
-                </div>
-                <!-- 3サイトへのリンクは2段目に -->
-                <div class="works-links works-links-sub">
-                  <a class="btn" href="https://murata397.github.io/Codejump/store/" target="_blank" rel="noopener">store</a>
-                  <a class="btn" href="https://murata397.github.io/Codejump/Creation/" target="_blank" rel="noopener">SOUSAKU</a>
-                  <a class="btn" href="https://murata397.github.io/Codejump/MyWork/" target="_blank" rel="noopener">MyWork</a>
-                </div>
-              </div>
-            </li>
-
-            <!-- NO.06 OUTDOOR FESTIVAL バナー -->
-            <li class="works-item">
-              <div class="works-visual">
-                <div class="works-image">
-                  <img src="<?php echo esc_url(get_theme_file_uri('img/works/banner.jpg')); ?>" alt="OUTDOOR FESTIVAL 2024 告知バナー" width="1200" height="628" loading="lazy">
-                </div>
-              </div>
-              <div class="works-body">
-                <p class="works-num">NO.06</p>
-                <p class="works-category">スクール課題<span>／</span>Figma・ロゴ制作</p>
-                <h3 class="works-title">OUTDOOR FESTIVAL バナー</h3>
-                <p class="works-text">アウトドアイベントの告知バナー。ロゴの真下に開催日を置き、注目してほしい情報は反対色のバッジで強調しました。</p>
-                <p class="works-meta">担当：デザイン・ロゴ制作<span>／</span>制作期間：2日</p>
-                <div class="works-links">
-                  <a class="btn btn-fill" href="<?php echo esc_url(home_url('/works/banner/')); ?>">詳しく見る</a>
-                  <a class="btn" href="https://www.figma.com/design/22U302Q8gfZxdEZKX73R5v" target="_blank" rel="noopener">Figmaで見る</a>
-                </div>
-              </div>
-            </li>
-
-            <!-- NO.07 YouTubeサムネイル -->
-            <li class="works-item">
-              <div class="works-visual">
-                <div class="works-image">
-                  <img src="<?php echo esc_url(get_theme_file_uri('img/works/thumbnail.jpg')); ?>" alt="YouTubeサムネイル「日本の神絶景 厳選10選」" width="1280" height="720" loading="lazy">
-                </div>
-              </div>
-              <div class="works-body">
-                <p class="works-num">NO.07</p>
-                <p class="works-category">ケーススタディ<span>／</span>Canva</p>
-                <h3 class="works-title">YouTubeサムネイル</h3>
-                <p class="works-text">日本の絶景を紹介する動画を想定したサムネイル。暗めの帯で文字を読みやすくし、「神絶景」「10選」を目立たせました。</p>
-                <p class="works-meta">担当：提案・デザイン<span>／</span>制作期間：2日</p>
-                <div class="works-links">
-                  <a class="btn btn-fill" href="<?php echo esc_url(home_url('/works/thumbnail/')); ?>">詳しく見る</a>
-                  <a class="btn" href="https://drive.google.com/drive/folders/1A0NMY6ccbF_zXwGhpG0HOZBvqeKZEn1Q?usp=sharing" target="_blank" rel="noopener">作品を見る</a>
-                </div>
-              </div>
-            </li>
+            <?php endwhile; ?>
           </ul>
+          <?php wp_reset_postdata(); ?>
+          <?php endif; ?>
         </div>
       </section>
 
@@ -236,22 +107,10 @@ get_header();
             <h2 class="section-title">MESSAGE</h2>
             <p class="message-lead">お仕事のご依頼・ご相談はこちらからお気軽にどうぞ。</p>
 
-            <!-- 送信の仕組みはWordPress化のときに Contact Form 7 で作る -->
-            <form class="message-form" action="#" method="post">
-              <div class="message-field">
-                <label class="message-label" for="message-name">お名前<span aria-hidden="true">*</span></label>
-                <input class="message-input" type="text" id="message-name" name="name" autocomplete="name" required>
-              </div>
-              <div class="message-field">
-                <label class="message-label" for="message-email">メールアドレス<span aria-hidden="true">*</span></label>
-                <input class="message-input" type="email" id="message-email" name="email" autocomplete="email" required>
-              </div>
-              <div class="message-field">
-                <label class="message-label" for="message-body">ご相談内容<span aria-hidden="true">*</span></label>
-                <textarea class="message-input message-textarea" id="message-body" name="message" required></textarea>
-              </div>
-              <button class="message-submit" type="submit">送信する</button>
-            </form>
+            <!-- フォームは Contact Form 7（管理画面の「お問い合わせ」で、タイトル「お問い合わせ」のフォームを使う） -->
+            <?php if (shortcode_exists('contact-form-7')) : ?>
+              <?php echo do_shortcode('[contact-form-7 title="お問い合わせ" html_class="message-form"]'); ?>
+            <?php endif; ?>
           </div>
         </div>
       </section>

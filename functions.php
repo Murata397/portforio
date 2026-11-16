@@ -1,4 +1,9 @@
 <?php
+// 制作実績まわり（入力欄・表示用の関数・最初の取り込み）
+require_once get_theme_file_path('inc/acf-works.php');
+require_once get_theme_file_path('inc/works-helpers.php');
+require_once get_theme_file_path('inc/import-works.php');
+
 // テーマの基本設定
 function riku_setup() {
   // <title>をWordPressに出力してもらう
@@ -39,6 +44,9 @@ function riku_resource_hints($urls, $relation_type) {
   return $urls;
 }
 add_filter('wp_resource_hints', 'riku_resource_hints', 10, 2);
+
+// Contact Form 7 が勝手に <p> や <br> を足さないようにする（デザインが崩れるため）
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 // カスタム投稿「制作実績（works）」
 function riku_register_works() {

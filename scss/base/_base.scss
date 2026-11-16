@@ -48,6 +48,16 @@ img {
   height: auto;
 }
 
+// 見た目は隠して、読み上げソフトには読ませる（WordPressが出すHTMLでも使われている）
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /*SP時の画面*/
 @media screen and (max-width: 767px) {
   body {

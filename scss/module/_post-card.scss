@@ -1,0 +1,152 @@
+// ブログ記事のカードと一覧
+
+/*PC時の画面*/
+.post-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 32px;
+}
+
+.post-card {
+  .post-card-link {
+    display: block;
+    height: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background-color: var(--color-surface);
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--color-main);
+      transform: translateY(-4px);
+    }
+  }
+
+  // アイキャッチ（なければ「BLOG」の文字）
+  .post-card-image {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-surface-2);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .post-card-noimage {
+    color: var(--color-border);
+    font-family: var(--font-en);
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+
+  .post-card-body {
+    padding: 24px 24px 28px;
+  }
+
+  // 日付とカテゴリー
+  .post-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 12px;
+    color: var(--color-muted);
+    font-family: var(--font-en);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+
+    span {
+      color: var(--color-main);
+      font-family: var(--font-ja);
+    }
+  }
+
+  .post-card-title {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  // 抜粋は2行まで
+  .post-card-excerpt {
+    display: -webkit-box;
+    margin-top: 10px;
+    color: var(--color-sub);
+    font-size: 14px;
+    line-height: 1.8;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+.post-empty {
+  color: var(--color-muted);
+}
+
+// ページ送り（WordPressが出すHTMLに合わせる）
+.pagination {
+  margin-top: 64px;
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .page-numbers {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-family: var(--font-en);
+    font-size: 14px;
+    transition: border-color 0.2s, color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--color-main);
+      color: var(--color-main);
+    }
+
+    // 今いるページ
+    &.current {
+      border-color: var(--color-main);
+      color: var(--color-bg);
+      background-color: var(--color-main);
+    }
+
+    &.dots {
+      border: 0;
+    }
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .post-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .post-card {
+    .post-card-body {
+      padding: 20px 20px 24px;
+    }
+
+    .post-card-title {
+      font-size: 17px;
+    }
+  }
+}

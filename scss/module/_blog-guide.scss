@@ -37,10 +37,34 @@
       opacity: 0.7;
     }
   }
+
+  // 「記事一覧を見る」ボタン
+  .blog-guide-more {
+    margin-top: 48px;
+    text-align: center;
+  }
+}
+
+// トップだけ：最新記事を並べる、広めの帯
+.blog-guide-latest {
+  padding: 120px 0;
+
+  .section-head {
+    margin-bottom: 56px;
+  }
 }
 
 /*SP時の画面*/
 @media screen and (max-width: 767px) {
+  // 下の .blog-guide の余白に負けないように、クラスを2つ重ねる
+  .blog-guide.blog-guide-latest {
+    padding: 80px 0;
+
+    .section-head {
+      margin-bottom: 40px;
+    }
+  }
+
   .blog-guide {
     padding: 48px 0;
 

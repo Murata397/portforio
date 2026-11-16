@@ -80,6 +80,23 @@ function riku_fallback_icon() {
 }
 add_action('wp_head', 'riku_fallback_icon');
 
+// ブログ一覧ページのURL（「設定 → 表示設定」の投稿ページ。未設定なら /blog/）
+function riku_blog_url() {
+  $page_id = (int) get_option('page_for_posts');
+  return $page_id ? get_permalink($page_id) : home_url('/blog/');
+}
+
+// 抜粋の長さ（日本語は文字数）と、末尾の記号
+function riku_excerpt_length() {
+  return 70;
+}
+add_filter('excerpt_length', 'riku_excerpt_length');
+
+function riku_excerpt_more() {
+  return '…';
+}
+add_filter('excerpt_more', 'riku_excerpt_more');
+
 // Contact Form 7 が勝手に <p> や <br> を足さないようにする（デザインが崩れるため）
 add_filter('wpcf7_autop_or_not', '__return_false');
 
@@ -98,7 +115,8 @@ function riku_register_works() {
     'menu_icon'     => 'dashicons-portfolio',
     'supports'      => array('title', 'editor', 'thumbnail', 'page-attributes'),
     'show_in_rest'  => true,
-    'rewrite'       => array('slug' => 'works'),
+    // ブログのURLを /blog/記事名/ にしても、作品は /works/〇〇/ のままにする
+    'rewrite'       => array('slug' => 'works', 'with_front' => false),
   ));
 }
 add_action('init', 'riku_register_works');

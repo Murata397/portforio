@@ -45,6 +45,16 @@ function riku_resource_hints($urls, $relation_type) {
 }
 add_filter('wp_resource_hints', 'riku_resource_hints', 10, 2);
 
+// サイトアイコン（管理画面で設定していないときだけ、テーマのアイコンを出す）
+function riku_fallback_icon() {
+  if (has_site_icon()) {
+    return;
+  }
+  printf('<link rel="icon" href="%s" type="image/png">' . "\n", esc_url(get_theme_file_uri('img/site-icon.png')));
+  printf('<link rel="apple-touch-icon" href="%s">' . "\n", esc_url(get_theme_file_uri('img/apple-touch-icon.png')));
+}
+add_action('wp_head', 'riku_fallback_icon');
+
 // Contact Form 7 が勝手に <p> や <br> を足さないようにする（デザインが崩れるため）
 add_filter('wpcf7_autop_or_not', '__return_false');
 

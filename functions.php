@@ -51,6 +51,25 @@ function riku_title_separator() {
 }
 add_filter('document_title_separator', 'riku_title_separator');
 
+// Googleアナリティクス（GA4）
+// 本番のサイトだけで計測し、ログイン中の自分のアクセスは数えない
+function riku_google_analytics() {
+  $measurement_id = 'G-34803BVEP2';
+  if (wp_get_environment_type() !== 'production' || is_user_logged_in()) {
+    return;
+  }
+  ?>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr($measurement_id); ?>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '<?php echo esc_js($measurement_id); ?>');
+  </script>
+  <?php
+}
+add_action('wp_head', 'riku_google_analytics', 1);
+
 // サイトアイコン（管理画面で設定していないときだけ、テーマのアイコンを出す）
 function riku_fallback_icon() {
   if (has_site_icon()) {

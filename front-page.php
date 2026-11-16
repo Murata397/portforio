@@ -111,6 +111,8 @@ get_header();
             <?php if (shortcode_exists('contact-form-7')) : ?>
               <?php echo do_shortcode('[contact-form-7 title="お問い合わせ" html_class="message-form"]'); ?>
             <?php endif; ?>
+            <!-- 送信後のお知らせ -->
+            <p class="message-note">送信後、確認のための自動返信メールをお送りします。<br class="is-pc-only">届かない場合は、<strong>迷惑メールフォルダ</strong>もご確認ください。</p>
           </div>
         </div>
       </section>

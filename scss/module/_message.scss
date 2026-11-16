@@ -78,6 +78,24 @@
     }
   }
 
+  // 送信後のお知らせ（枠で囲んで、大事なところだけ黄色に）
+  .message-note {
+    margin-top: 32px;
+    padding: 16px 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    color: var(--color-sub);
+    background-color: var(--color-surface);
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: center;
+
+    strong {
+      color: var(--color-main);
+      font-weight: 700;
+    }
+  }
+
   // ---- Contact Form 7 が出すもの ----
 
   // 入力欄を包むspanを、横いっぱいに広げる

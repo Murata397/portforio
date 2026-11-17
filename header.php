@@ -4,9 +4,7 @@
   <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php if (is_front_page()) : ?>
-      <meta name="description" content="自動車整備士・村田陸のWeb制作ポートフォリオ。デザイン・コーディング・WordPress構築。">
-    <?php endif; ?>
+    <?php // 説明文とOGP（SNSで共有したときのカード）は functions.php の riku_meta_ogp で出す ?>
     <?php wp_head(); ?>
   </head>
 

@@ -70,6 +70,51 @@ function riku_google_analytics() {
 }
 add_action('wp_head', 'riku_google_analytics', 1);
 
+// 説明文とOGP（LINEやXでURLを送ったときに出るカード）
+// ページの種類ごとに、タイトル・説明文・画像を切り替える
+function riku_meta_ogp() {
+  $site        = get_bloginfo('name');
+  $default_img = get_theme_file_uri('img/ogp.png');
+  $description = '自動車整備士・村田陸のWeb制作ポートフォリオ。デザイン・コーディング・WordPress構築。';
+  $image       = $default_img;
+  $type        = 'website';
+  $url         = home_url(add_query_arg(array(), $GLOBALS['wp']->request ? trailingslashit($GLOBALS['wp']->request) : '/'));
+
+  if (is_singular('works')) {
+    // 作品：トップ用の説明。バナーなど「作品画像を1枚」の作品は、その画像をカードにする
+    $description = riku_field('summary') ?: $description;
+    if (riku_field('visual') === 'image' && riku_field('image_main')) {
+      $image = wp_get_attachment_image_url(riku_field('image_main'), 'large') ?: $default_img;
+    }
+    $url = get_permalink();
+  } elseif (is_singular('post')) {
+    // ブログ記事：抜粋とアイキャッチ
+    $description = wp_strip_all_tags(get_the_excerpt()) ?: $description;
+    if (has_post_thumbnail()) {
+      $image = get_the_post_thumbnail_url(null, 'large');
+    }
+    $type = 'article';
+    $url  = get_permalink();
+  } elseif (is_home() || is_archive()) {
+    $description = 'RIKU MURATAのブログ。学習記録や制作の裏側を書いています。';
+  }
+
+  $description = wp_html_excerpt($description, 120, '…');
+  $title       = wp_get_document_title();
+  ?>
+  <meta name="description" content="<?php echo esc_attr($description); ?>">
+  <meta property="og:type" content="<?php echo esc_attr($type); ?>">
+  <meta property="og:site_name" content="<?php echo esc_attr($site); ?>">
+  <meta property="og:title" content="<?php echo esc_attr($title); ?>">
+  <meta property="og:description" content="<?php echo esc_attr($description); ?>">
+  <meta property="og:url" content="<?php echo esc_url($url); ?>">
+  <meta property="og:image" content="<?php echo esc_url($image); ?>">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <?php
+}
+add_action('wp_head', 'riku_meta_ogp', 2);
+
 // サイトアイコン（管理画面で設定していないときだけ、テーマのアイコンを出す）
 function riku_fallback_icon() {
   if (has_site_icon()) {

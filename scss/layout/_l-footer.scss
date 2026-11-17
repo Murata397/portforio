@@ -5,6 +5,8 @@
   text-align: center;
 
   .l-footer-copy {
+    // 文章の両端そろえ（base）に負けないよう、ここでも中央寄せにする
+    text-align: center;
     color: var(--color-muted);
     font-family: var(--font-en);
     font-size: 12px;

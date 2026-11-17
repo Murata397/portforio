@@ -406,12 +406,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p, dt, dd, li, figcaption, th, td {
   word-break: auto-phrase;
+  line-break: strict;
+  overflow-wrap: anywhere;
+}
+
+h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
-p, dd, li {
+p, dd, li, figcaption {
   text-wrap: pretty;
 }
 
@@ -492,6 +497,7 @@ img {
   text-align: center;
 }
 .l-footer .l-footer-copy {
+  text-align: center;
   color: var(--color-muted);
   font-family: var(--font-en);
   font-size: 12px;
@@ -1738,8 +1744,27 @@ img {
   color: var(--color-sub);
   line-height: 2;
 }
-.work-detail .work-detail-text p + p {
+.work-detail .work-detail-text > * + * {
   margin-top: 1em;
+}
+.work-detail .work-detail-text ul {
+  padding: 16px 24px;
+  border-radius: 8px;
+  background-color: var(--color-surface);
+}
+.work-detail .work-detail-text li {
+  padding-left: 16px;
+  position: relative;
+}
+.work-detail .work-detail-text li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-main);
+  position: absolute;
+  top: 0.85em;
+  left: 0;
 }
 .work-detail .work-detail-cards {
   display: grid;

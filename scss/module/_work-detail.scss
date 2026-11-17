@@ -158,8 +158,32 @@
     color: var(--color-sub);
     line-height: 2;
 
-    p + p {
+    // 段落・箇条書きの間
+    > * + * {
       margin-top: 1em;
+    }
+
+    // 黄色い点の箇条書き
+    ul {
+      padding: 16px 24px;
+      border-radius: 8px;
+      background-color: var(--color-surface);
+    }
+
+    li {
+      padding-left: 16px;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--color-main);
+        position: absolute;
+        top: 0.85em;
+        left: 0;
+      }
     }
   }
 

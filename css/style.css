@@ -451,11 +451,17 @@ img {
 }
 .l-header {
   border-bottom: 1px solid var(--color-border);
-  background-color: rgba(15, 17, 21, 0.9);
-  backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
   z-index: 100;
+}
+.l-header::before {
+  content: "";
+  background-color: rgba(15, 17, 21, 0.9);
+  backdrop-filter: blur(8px);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 }
 .l-header .l-header-inner {
   display: -webkit-box;

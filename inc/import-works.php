@@ -76,7 +76,7 @@ function riku_import_works_data() {
       'meta_type' => 'ケーススタディ', 'role' => '提案・デザイン', 'period' => '2日',
       'skills_label' => '使用ツール', 'skills' => 'Canva',
       'visual' => 'image', 'image_main' => 'thumbnail.jpg', 'image_main_alt' => 'YouTubeサムネイル「日本の神絶景 厳選10選」。紅葉と神社の写真の中央に、暗めの帯と大きな文字',
-      'link_label' => '作品を見る', 'link_url' => 'https://drive.google.com/drive/folders/1A0NMY6ccbF_zXwGhpG0HOZBvqeKZEn1Q?usp=sharing',
+      'link_label' => 'Canvaで見る', 'link_url' => 'https://canva.link/wtd3slhlqmqkh0d',
     ),
   );
 }

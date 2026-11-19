@@ -20,8 +20,8 @@
           <ul class="gnav-list">
             <li><a class="gnav-link" href="<?php echo esc_url(home_url('/#works')); ?>">WORKS</a></li>
             <li><a class="gnav-link" href="<?php echo esc_url(home_url('/#about')); ?>">ABOUT</a></li>
-            <li><a class="gnav-link" href="<?php echo esc_url(home_url('/#message')); ?>">MESSAGE</a></li>
-            <li><a class="gnav-link gnav-link-accent" href="<?php echo esc_url(riku_blog_url()); ?>">BLOG</a></li>
+            <li><a class="gnav-link" href="<?php echo esc_url(home_url('/#contact')); ?>">CONTACT</a></li>
+            <li><a class="gnav-link" href="<?php echo esc_url(riku_blog_url()); ?>">BLOG</a></li>
           </ul>
         </nav>
 

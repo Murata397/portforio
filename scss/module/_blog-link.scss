@@ -1,0 +1,88 @@
+// ABOUTの下のブログへの入り口
+
+/*PC時の画面*/
+.blog-link-section {
+  padding: 0 0 120px;
+}
+
+.blog-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px 48px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-surface);
+  transition: border-color 0.3s;
+
+  .blog-link-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .blog-link-title {
+    font-family: var(--font-en);
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+  }
+
+  .blog-link-text {
+    color: var(--color-sub);
+    font-size: 15px;
+  }
+
+  // 黄色い丸の矢印
+  .blog-link-arrow {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border: 1px solid var(--color-main);
+    border-radius: 50%;
+    color: var(--color-main);
+    font-size: 24px;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
+  }
+
+  // マウスを乗せると枠が黄色に、矢印が右へ
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-main);
+
+    .blog-link-arrow {
+      color: var(--color-bg);
+      background-color: var(--color-main);
+      transform: translateX(6px);
+    }
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .blog-link-section {
+    padding: 0 0 80px;
+  }
+
+  .blog-link {
+    padding: 28px 24px;
+
+    .blog-link-title {
+      font-size: 28px;
+    }
+
+    .blog-link-text {
+      font-size: 14px;
+    }
+
+    .blog-link-arrow {
+      width: 52px;
+      height: 52px;
+      font-size: 20px;
+    }
+  }
+}

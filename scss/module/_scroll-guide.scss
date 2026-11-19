@@ -1,0 +1,63 @@
+// ファーストビューの下のスクロール誘導（WORKSへ）
+
+/*PC時の画面*/
+.scroll-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 96px;
+
+  .scroll-guide-text {
+    color: var(--color-sub);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  // 黄色い丸のボタン（上下にぴょこぴょこ動く）
+  .scroll-guide-btn {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--color-main);
+    border-radius: 50%;
+    color: var(--color-main);
+    font-size: 22px;
+    transition: color 0.2s, background-color 0.2s;
+    animation: scroll-guide-bounce 1.6s ease-in-out infinite;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-bg);
+      background-color: var(--color-main);
+    }
+  }
+}
+
+@keyframes scroll-guide-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .scroll-guide {
+    margin-top: 64px;
+
+    .scroll-guide-text {
+      font-size: 13px;
+    }
+
+    .scroll-guide-btn {
+      width: 48px;
+      height: 48px;
+      font-size: 20px;
+    }
+  }
+}

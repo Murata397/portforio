@@ -2,7 +2,7 @@
 
 /*PC時の画面*/
 .hero {
-  padding: 160px 0 140px;
+  padding: 160px 0 96px;
 
   .hero-label {
     color: var(--color-main);
@@ -21,6 +21,11 @@
     letter-spacing: 0.04em;
   }
 
+  // 1行ずつ順番に出すため、行ごとに分けている
+  .hero-title-line {
+    display: block;
+  }
+
   .hero-title-accent {
     color: var(--color-main);
   }
@@ -36,6 +41,6 @@
 /*SP時の画面*/
 @media screen and (max-width: 767px) {
   .hero {
-    padding: 88px 0 96px;
+    padding: 88px 0 72px;
   }
 }

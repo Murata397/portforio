@@ -45,6 +45,13 @@ function riku_resource_hints($urls, $relation_type) {
 }
 add_filter('wp_resource_hints', 'riku_resource_hints', 10, 2);
 
+// JSが動くときだけ <html> に is-js を付ける
+// （スクロールで出てくる要素は is-js のときだけ隠すので、JSが止まっていても中身は見える）
+function riku_js_class() {
+  echo "<script>document.documentElement.classList.add('is-js');</script>\n";
+}
+add_action('wp_head', 'riku_js_class', 0);
+
 // <title>の区切りを「–」から「|」にする（例：CM_Logs | RIKU MURATA）
 function riku_title_separator() {
   return '|';

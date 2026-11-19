@@ -27,4 +27,30 @@ const menu = () => {
   });
 };
 
+const reveal = () => {
+
+  //スクロールで出てくる要素
+  const targets = document.querySelectorAll('.js-reveal');
+  if (!targets.length) return;
+
+  //古いブラウザなどで使えないときは、全部すぐ表示する
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach((target) => target.classList.add('is-inview'));
+    return;
+  }
+
+  //画面の下から15%くらい入ったら表示する（一度出たら、もう見張らない）
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-inview');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -15% 0px' });
+
+  targets.forEach((target) => observer.observe(target));
+};
+
 menu();
+reveal();

@@ -5,19 +5,28 @@ get_header();
       <!-- hero -->
       <section class="hero">
         <div class="l-container">
-          <p class="hero-label">WEB DESIGN / CODING / WORDPRESS</p>
+          <!-- 文字は上から順番に出てくる（hero-fade と --delay） -->
+          <p class="hero-label hero-fade" style="--delay: 0.1s;">WEB DESIGN / CODING / WORDPRESS</p>
           <h1 class="hero-title">
-            丁寧に、確実に。<br>
-            整備士の目線でつくる<span class="hero-title-accent">Webサイト。</span>
+            <span class="hero-title-line hero-fade" style="--delay: 0.35s;">丁寧に、確実に。</span>
+            <span class="hero-title-line hero-fade" style="--delay: 0.6s;">整備士の目線でつくる<span class="hero-title-accent">Webサイト。</span></span>
           </h1>
-          <p class="hero-lead">自動車整備士として培った「点検・確認」の習慣を、Web制作にも。<br class="is-pc-only">見た目だけでなく、更新しやすく壊れにくいサイトづくりを心がけています。</p>
+          <p class="hero-lead hero-fade" style="--delay: 0.9s;">自動車整備士として培った「点検・確認」の習慣を、Web制作にも。<br class="is-pc-only">見た目だけでなく、更新しやすく壊れにくいサイトづくりを心がけています。</p>
+
+          <!-- スクロール誘導（WORKSへ） -->
+          <div class="scroll-guide hero-fade" style="--delay: 1.3s;">
+            <p class="scroll-guide-text">制作実績・お問い合わせは下からご覧ください</p>
+            <a class="scroll-guide-btn" href="#works" aria-label="制作実績へ進む">
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
         </div>
       </section>
 
       <!-- works -->
       <section class="l-section works" id="works">
         <div class="l-container">
-          <div class="section-head">
+          <div class="section-head js-reveal">
             <h2 class="section-title">WORKS</h2>
             <p class="section-head-note">PC・スマホ両方の表示をひと目で確認できます</p>
           </div>
@@ -34,10 +43,10 @@ get_header();
           <ul class="works-list">
             <?php while ($works->have_posts()) : $works->the_post(); ?>
             <li class="works-item">
-              <div class="works-visual">
+              <div class="works-visual js-reveal">
                 <?php get_template_part('template-parts/works-visual', null, array('lazy' => true)); ?>
               </div>
-              <div class="works-body">
+              <div class="works-body js-reveal">
                 <p class="works-num"><?php echo esc_html(riku_field('num')); ?></p>
                 <p class="works-category"><?php riku_category(); ?></p>
                 <h3 class="works-title"><?php echo esc_html(riku_field('short_title') ?: get_the_title()); ?></h3>
@@ -74,7 +83,7 @@ get_header();
 
       <!-- about -->
       <section class="l-section about" id="about">
-        <div class="l-container about-inner">
+        <div class="l-container about-inner js-reveal">
           <!-- webp対応ブラウザは軽いwebp、それ以外はjpgを表示 -->
           <div class="about-photo">
             <picture>
@@ -100,11 +109,24 @@ get_header();
         </div>
       </section>
 
-      <!-- message -->
-      <section class="l-section message" id="message">
+      <!-- blog（ブログ一覧への入り口） -->
+      <section class="blog-link-section">
+        <div class="l-container">
+          <a class="blog-link js-reveal" href="<?php echo esc_url(riku_blog_url()); ?>">
+            <span class="blog-link-body">
+              <span class="blog-link-title">BLOG</span>
+              <span class="blog-link-text">学習記録や制作の裏側を書いています。ブログはこちら</span>
+            </span>
+            <span class="blog-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- contact -->
+      <section class="l-section message" id="contact">
         <div class="l-container">
           <div class="message-inner">
-            <h2 class="section-title">MESSAGE</h2>
+            <h2 class="section-title">CONTACT</h2>
             <p class="message-lead">お仕事のご依頼・ご相談はこちらからお気軽にどうぞ。</p>
 
             <!-- フォームは Contact Form 7（管理画面の「お問い合わせ」で、タイトル「お問い合わせ」のフォームを使う） -->

@@ -14,8 +14,29 @@
     font-size: 15px;
   }
 
+  // 縦に並べて、order で並び順を決める
+  // （Contact Form 7 はロボット確認をフォームの先頭に入れるので、送信ボタンの上へ移すため）
   .message-form {
+    display: flex;
+    flex-direction: column;
     margin-top: 24px;
+
+    // 入力欄 → ロボット確認 → 送信ボタン → くるくる → 送信結果 の順
+    .wpcf7-turnstile {
+      order: 1;
+    }
+
+    .message-submit {
+      order: 2;
+    }
+
+    .wpcf7-spinner {
+      order: 3;
+    }
+
+    .wpcf7-response-output {
+      order: 4;
+    }
   }
 
   .message-field + .message-field {
@@ -97,6 +118,13 @@
   }
 
   // ---- Contact Form 7 が出すもの ----
+
+  // ロボット確認（Cloudflare Turnstile）：送信ボタンの上に中央寄せ
+  .wpcf7-turnstile {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+  }
 
   // 入力欄を包むspanを、横いっぱいに広げる
   .wpcf7-form-control-wrap {

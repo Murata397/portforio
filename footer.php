@@ -12,6 +12,7 @@
 
     <!-- footer -->
     <footer class="l-footer">
+      <?php get_template_part('template-parts/sns-links'); ?>
       <p class="l-footer-copy"><small>&copy; <?php echo esc_html(wp_date('Y')); ?> RIKU MURATA</small></p>
     </footer>
     <?php wp_footer(); ?>

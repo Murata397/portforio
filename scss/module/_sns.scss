@@ -1,0 +1,45 @@
+// SNSへのリンク（ABOUTとフッター）
+
+/*PC時の画面*/
+.sns-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sns-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-family: var(--font-en);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition: color 0.3s, border-color 0.3s;
+
+  .sns-link-icon {
+    color: var(--color-main);
+    font-size: 12px;
+  }
+
+  // マウスを乗せると黄色に
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-main);
+    color: var(--color-main);
+  }
+}
+
+// ABOUTの中
+.about .sns-links {
+  margin-top: 24px;
+}
+
+// フッターの中：中央寄せ
+.l-footer .sns-links {
+  justify-content: center;
+  margin-bottom: 20px;
+}

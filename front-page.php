@@ -105,6 +105,7 @@ get_header();
               <li>Canva</li>
             </ul>
             <p class="about-note">対応時間：平日夜間・休日中心（ご連絡には日中も気づき次第お返事します）</p>
+            <?php get_template_part('template-parts/sns-links'); ?>
           </div>
         </div>
       </section>

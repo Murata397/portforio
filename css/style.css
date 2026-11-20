@@ -2096,7 +2096,7 @@ img {
 }
 /*PC時の画面*/
 .blog-link-section {
-  padding: 0 0 120px;
+  padding: 96px 0 120px;
 }
 
 .blog-link {
@@ -2167,7 +2167,7 @@ img {
 /*SP時の画面*/
 @media screen and (max-width: 767px) {
   .blog-link-section {
-    padding: 0 0 80px;
+    padding: 64px 0 80px;
   }
   .blog-link {
     padding: 28px 24px;
@@ -2184,6 +2184,54 @@ img {
     font-size: 20px;
   }
 }
+/*PC時の画面*/
+.sns-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sns-link {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-family: var(--font-en);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  -webkit-transition: color 0.3s, border-color 0.3s;
+  transition: color 0.3s, border-color 0.3s;
+}
+.sns-link .sns-link-icon {
+  color: var(--color-main);
+  font-size: 12px;
+}
+.sns-link:hover, .sns-link:focus-visible {
+  border-color: var(--color-main);
+  color: var(--color-main);
+}
+
+.about .sns-links {
+  margin-top: 24px;
+}
+
+.l-footer .sns-links {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+}
+
 .hero-fade {
   -webkit-animation: hero-fade-in 0.8s ease-out both;
           animation: hero-fade-in 0.8s ease-out both;

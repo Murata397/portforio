@@ -1,0 +1,86 @@
+// できること
+
+/*PC時の画面*/
+.skills {
+  border-top: 1px solid var(--color-border);
+
+  // PCは2列、SPは1列
+  .skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .skills-item {
+    padding: 40px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background-color: var(--color-surface);
+  }
+
+  // 2つ目ごとに少し遅れて出す
+  .skills-item:nth-child(even) {
+    transition-delay: 0.15s;
+  }
+
+  .skills-num {
+    color: var(--color-main);
+    font-family: var(--font-en);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+
+  .skills-title {
+    margin-top: 12px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  .skills-text {
+    margin-top: 16px;
+    color: var(--color-sub);
+    font-size: 15px;
+    line-height: 2;
+  }
+
+  .skills-example {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: 13px;
+  }
+}
+
+/*TB時の画面*/
+@media screen and (max-width: 1023px) {
+  .skills {
+    .skills-item {
+      padding: 32px;
+    }
+  }
+}
+
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .skills {
+    .skills-list {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .skills-item {
+      padding: 28px 24px;
+    }
+
+    // 1列なので遅らせない
+    .skills-item:nth-child(even) {
+      transition-delay: 0s;
+    }
+
+    .skills-title {
+      font-size: 20px;
+    }
+  }
+}

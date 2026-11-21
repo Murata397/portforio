@@ -61,7 +61,7 @@
 // ---- 動きを減らす設定の人には、動かさない ----
 @media (prefers-reduced-motion: reduce) {
   .hero-fade,
-  .scroll-guide .scroll-guide-btn {
+  .scroll-guide .scroll-guide-arrow {
     animation: none;
   }
 

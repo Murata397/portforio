@@ -13,12 +13,9 @@ get_header();
           </h1>
           <p class="hero-lead hero-fade" style="--delay: 0.9s;">自動車整備士として培った「点検・確認」の習慣を、Web制作にも。<br class="is-pc-only">見た目だけでなく、更新しやすく壊れにくいサイトづくりを心がけています。</p>
 
-          <!-- スクロール誘導（WORKSへ） -->
+          <!-- 制作実績へ進むボタン（矢印が上下にぴょこぴょこ動く） -->
           <div class="scroll-guide hero-fade" style="--delay: 1.3s;">
-            <p class="scroll-guide-text">制作実績・お問い合わせは下からご覧ください</p>
-            <a class="scroll-guide-btn" href="#works" aria-label="制作実績へ進む">
-              <span aria-hidden="true">↓</span>
-            </a>
+            <a class="scroll-guide-btn" href="#works">制作実績を見る<span class="scroll-guide-arrow" aria-hidden="true">↓</span></a>
           </div>
         </div>
       </section>
@@ -78,6 +75,42 @@ get_header();
           </ul>
           <?php wp_reset_postdata(); ?>
           <?php endif; ?>
+        </div>
+      </section>
+
+      <!-- skills（できること） -->
+      <section class="l-section skills" id="skills">
+        <div class="l-container">
+          <div class="section-head js-reveal">
+            <h2 class="section-title">SKILLS</h2>
+            <p class="section-head-note">できること：これまでの制作で実際にやってきたこと</p>
+          </div>
+          <ul class="skills-list">
+            <li class="skills-item js-reveal">
+              <span class="skills-num">01</span>
+              <h3 class="skills-title">WordPressサイト制作</h3>
+              <p class="skills-text">オリジナルテーマも既存テーマも使えます。カスタム投稿やACFで、あとから文章や画像を更新しやすい作りにしています。</p>
+              <p class="skills-example">例：さわやか歯科クリニック・Cafe Harmonie・このサイト</p>
+            </li>
+            <li class="skills-item js-reveal">
+              <span class="skills-num">02</span>
+              <h3 class="skills-title">デザイン・コーディング</h3>
+              <p class="skills-text">Figmaでデザインを作り、HTML・SCSS・JavaScriptで、スマホでも見やすいページに組み上げます。コードを書かずに作れるSTUDIOでのページ制作もしています。</p>
+              <p class="skills-example">例：コーディング練習（HTML・SCSS）・AI業務効率化セミナー LP（STUDIO）</p>
+            </li>
+            <li class="skills-item js-reveal">
+              <span class="skills-num">03</span>
+              <h3 class="skills-title">Webアプリ開発</h3>
+              <p class="skills-text">Ruby on Railsで、ログインや投稿ができるWebアプリを作り、サーバーで公開するところまでやりました。</p>
+              <p class="skills-example">例：CM_Logs</p>
+            </li>
+            <li class="skills-item js-reveal">
+              <span class="skills-num">04</span>
+              <h3 class="skills-title">バナー・サムネイル制作</h3>
+              <p class="skills-text">Canvaで、伝えたいことがひと目で分かる画像を作ります。文字の大きさや色で、見てほしい順番をつけています。</p>
+              <p class="skills-example">例：OUTDOOR FESTIVAL バナー・YouTubeサムネイル</p>
+            </li>
+          </ul>
         </div>
       </section>
 

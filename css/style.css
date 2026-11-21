@@ -922,6 +922,74 @@ img {
   }
 }
 /*PC時の画面*/
+.skills {
+  border-top: 1px solid var(--color-border);
+}
+.skills .skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.skills .skills-item {
+  padding: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-surface);
+}
+.skills .skills-item:nth-child(even) {
+  -webkit-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+.skills .skills-num {
+  color: var(--color-main);
+  font-family: var(--font-en);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.skills .skills-title {
+  margin-top: 12px;
+  font-size: 22px;
+  font-weight: 700;
+}
+.skills .skills-text {
+  margin-top: 16px;
+  color: var(--color-sub);
+  font-size: 15px;
+  line-height: 2;
+}
+.skills .skills-example {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+/*TB時の画面*/
+@media screen and (max-width: 1023px) {
+  .skills .skills-item {
+    padding: 32px;
+  }
+}
+/*SP時の画面*/
+@media screen and (max-width: 767px) {
+  .skills .skills-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .skills .skills-item {
+    padding: 28px 24px;
+  }
+  .skills .skills-item:nth-child(even) {
+    -webkit-transition-delay: 0s;
+            transition-delay: 0s;
+  }
+  .skills .skills-title {
+    font-size: 20px;
+  }
+}
+/*PC時の画面*/
 .about {
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
@@ -2022,41 +2090,33 @@ img {
 }
 /*PC時の画面*/
 .scroll-guide {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  margin-top: 48px;
+}
+.scroll-guide .scroll-guide-btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 16px;
-  margin-top: 96px;
-}
-.scroll-guide .scroll-guide-text {
-  color: var(--color-sub);
-  font-size: 14px;
-  letter-spacing: 0.08em;
-}
-.scroll-guide .scroll-guide-btn {
-  display: grid;
-  place-items: center;
-  width: 56px;
-  height: 56px;
-  border: 1px solid var(--color-main);
-  border-radius: 50%;
-  color: var(--color-main);
-  font-size: 22px;
-  -webkit-transition: color 0.2s, background-color 0.2s;
-  transition: color 0.2s, background-color 0.2s;
-  -webkit-animation: scroll-guide-bounce 1.6s ease-in-out infinite;
-          animation: scroll-guide-bounce 1.6s ease-in-out infinite;
-}
-.scroll-guide .scroll-guide-btn:hover, .scroll-guide .scroll-guide-btn:focus-visible {
+  gap: 12px;
+  padding: 16px 32px;
+  border-radius: 999px;
   color: var(--color-bg);
   background-color: var(--color-main);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.scroll-guide .scroll-guide-btn:hover, .scroll-guide .scroll-guide-btn:focus-visible {
+  opacity: 0.85;
+}
+.scroll-guide .scroll-guide-arrow {
+  display: inline-block;
+  -webkit-animation: scroll-guide-bounce 1.6s ease-in-out infinite;
+          animation: scroll-guide-bounce 1.6s ease-in-out infinite;
 }
 
 @-webkit-keyframes scroll-guide-bounce {
@@ -2065,8 +2125,8 @@ img {
             transform: translateY(0);
   }
   50% {
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px);
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
   }
 }
 
@@ -2076,22 +2136,18 @@ img {
             transform: translateY(0);
   }
   50% {
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px);
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
   }
 }
 /*SP時の画面*/
 @media screen and (max-width: 767px) {
   .scroll-guide {
-    margin-top: 64px;
-  }
-  .scroll-guide .scroll-guide-text {
-    font-size: 13px;
+    margin-top: 40px;
   }
   .scroll-guide .scroll-guide-btn {
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
+    padding: 14px 28px;
+    font-size: 14px;
   }
 }
 /*PC時の画面*/
@@ -2302,7 +2358,7 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
   .hero-fade,
-  .scroll-guide .scroll-guide-btn {
+  .scroll-guide .scroll-guide-arrow {
     -webkit-animation: none;
             animation: none;
   }

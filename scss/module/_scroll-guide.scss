@@ -1,37 +1,33 @@
-// ファーストビューの下のスクロール誘導（WORKSへ）
+// ファーストビューの「制作実績を見る」ボタン（WORKSへ）
 
 /*PC時の画面*/
 .scroll-guide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  margin-top: 96px;
+  margin-top: 48px;
 
-  .scroll-guide-text {
-    color: var(--color-sub);
-    font-size: 14px;
-    letter-spacing: 0.08em;
-  }
-
-  // 黄色い丸のボタン（上下にぴょこぴょこ動く）
+  // 黄色い塗りつぶしのボタン
   .scroll-guide-btn {
-    display: grid;
-    place-items: center;
-    width: 56px;
-    height: 56px;
-    border: 1px solid var(--color-main);
-    border-radius: 50%;
-    color: var(--color-main);
-    font-size: 22px;
-    transition: color 0.2s, background-color 0.2s;
-    animation: scroll-guide-bounce 1.6s ease-in-out infinite;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border-radius: 999px;
+    color: var(--color-bg);
+    background-color: var(--color-main);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: opacity 0.2s;
 
     &:hover,
     &:focus-visible {
-      color: var(--color-bg);
-      background-color: var(--color-main);
+      opacity: 0.85;
     }
+  }
+
+  // 矢印だけ上下にぴょこぴょこ動かす
+  .scroll-guide-arrow {
+    display: inline-block;
+    animation: scroll-guide-bounce 1.6s ease-in-out infinite;
   }
 }
 
@@ -41,23 +37,18 @@
   }
 
   50% {
-    transform: translateY(10px);
+    transform: translateY(4px);
   }
 }
 
 /*SP時の画面*/
 @media screen and (max-width: 767px) {
   .scroll-guide {
-    margin-top: 64px;
-
-    .scroll-guide-text {
-      font-size: 13px;
-    }
+    margin-top: 40px;
 
     .scroll-guide-btn {
-      width: 48px;
-      height: 48px;
-      font-size: 20px;
+      padding: 14px 28px;
+      font-size: 14px;
     }
   }
 }
